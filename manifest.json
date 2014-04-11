@@ -1,0 +1,26 @@
+{
+  "name"             : "Jira Jockey",
+  "description"      :"http://stackoverflow.com/questions/14068879",
+  "version"          : "1.0",
+  "manifest_version" : 2,
+
+  "permissions": [
+    "https://brander.atlassian.net/",
+    "https://github.com/"
+  ],
+
+  "content_scripts": [
+    {
+      "run_at"  : "document_end",
+      "matches" : ["https://brander.atlassian.net/*"],
+      "css"     : ["Jira/Jira.css"],
+      "js"      : ["Lib/Helpers.js", "Lib/Jquery.js", "Jira/JiraCore.js"]
+    },
+    {
+      "run_at"  : "document_end",
+      "matches" : ["https://github.com/*"],
+      "css"     : ["Git/Git.css"],
+      "js"      : ["Lib/Helpers.js", "Lib/Jquery.js", "Git/GitHelper.js"]
+    }
+  ]
+}
