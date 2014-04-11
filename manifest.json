@@ -6,7 +6,9 @@
 
   "permissions": [
     "https://brander.atlassian.net/",
-    "https://github.com/"
+    "https://github.com/",
+    "clipboardWrite",
+    "clipboardRead"
   ],
   "background" : {
       "scripts" : ["Jira/AgileFormatter.js"]

@@ -27,6 +27,9 @@ function onTestComplete (executeTest, callback) {
   }
 }
 
+//
+// loops for the duration of the page, reformatting it when necessary
+//
 var listener = {
   functions : [],
   addFunc   : function  (func) {
