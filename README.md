@@ -7,7 +7,7 @@ Funcitonality
 =============
 
 * Agile Board
-  * shades resolves tickets
+  * shades resolved tickets
   * sets the goal line as gold bar
 * GitHub
   * Changes ticket in title to link to jira ticket 
