@@ -20,4 +20,4 @@ To Do
 * Git
  * add lines to copy and paste to test PR branch code, as well as a quick copy button
 
-**Shoult out to Adam Bretz for the name**
+**Shout out to Adam Bretz for the name**
