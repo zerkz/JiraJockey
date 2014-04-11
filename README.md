@@ -11,3 +11,11 @@ Funcitonality
   * sets the goal line as gold bar
 * GitHub
   * Changes ticket in title to link to jira ticket 
+
+To Do
+=====
+
+*Jira
+ * add links to commit/revisions to jenkins jira comments
+* Git
+ * add lines co copy and paste to test PR branch code, as well as a quick copy button
