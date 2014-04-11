@@ -8,13 +8,15 @@
     "https://brander.atlassian.net/",
     "https://github.com/"
   ],
-
+  "background" : {
+      "scripts" : ["Jira/AgileFormatter.js"]
+  },
   "content_scripts": [
     {
       "run_at"  : "document_end",
       "matches" : ["https://brander.atlassian.net/*"],
       "css"     : ["Jira/Jira.css"],
-      "js"      : ["Lib/Helpers.js", "Lib/Jquery.js", "Jira/JiraCore.js"]
+      "js"      : ["Lib/Helpers.js", "Lib/Jquery.js", "Jira/AgileFormatter.js"]
     },
     {
       "run_at"  : "document_end",
