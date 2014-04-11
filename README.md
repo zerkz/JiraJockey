@@ -16,6 +16,6 @@ To Do
 =====
 
 * Jira
- * add links to commit/revisions to jenkins jira comments
+ * add links to commit/revisions in jenkins jira comments
 * Git
- * add lines co copy and paste to test PR branch code, as well as a quick copy button
+ * add lines to copy and paste to test PR branch code, as well as a quick copy button
