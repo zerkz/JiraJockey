@@ -21,7 +21,6 @@ To Do
  * add links to commit/revisions in jenkins jira comments
  * add 'start work' button to assign the ticket to yourself, start progress, and start the tracker
  * add 'stop work' button to set status to open and log the time from the tracker
- * 
  
 * git
  * make localhost links clickable
