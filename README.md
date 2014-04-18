@@ -25,6 +25,7 @@ To Do
  
 * git
  * make localhost links clickable
+ * fix missing link in header
 
 * json
  * persistant focus on a subprop accross page loads
