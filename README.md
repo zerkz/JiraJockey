@@ -12,19 +12,19 @@ Functionality
 * GitHub
   * Changes ticket in title to link to jira ticket 
   * Added a box to the bottom of the first comment in the PR comtaining the commands to pull the pr
+  * Converts localhost links in comments to clickable links, displaying only the path
+ 
+* Poller
+  * all style changes listed above will execute every tenth of a second for 30 seconds to accommadate for AJAX requests and restyling in both Jira and Git
+  * after two minutes of inactiviy on the page, the poller will cease
+  * the timer is reset on a mouse move event
 
 To Do
 =====
 
 * Jira
+ * Shade blocked tickets
  * Automatically post PR links in the comments of a jira ticket when one is submitted
- * add links to commit/revisions in jenkins jira comments
- * add 'start work' button to assign the ticket to yourself, start progress, and start the tracker
- * add 'stop work' button to set status to open and log the time from the tracker
- 
-* git
- * make localhost links clickable
- * fix missing link in header
 
 * json
  * persistant focus on a subprop accross page loads
