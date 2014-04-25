@@ -7,8 +7,9 @@ Functionality
 =============
 
 * Agile Board
-  * shades resolved tickets
-  * sets the goal line as gold bar
+  * Shades resolved tickets
+  * Sets the goal line as gold bar
+  * Shades tickets in the clocked epic
 * GitHub
   * Changes ticket in title to link to jira ticket 
   * Added a box to the bottom of the first comment in the PR comtaining the commands to pull the pr
@@ -23,7 +24,7 @@ To Do
 =====
 
 * Jira
- * Shade blocked tickets
+ * Show completion status for dual FE, BE tickets
  * Automatically post PR links in the comments of a jira ticket when one is submitted
 
 * json

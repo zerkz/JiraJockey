@@ -1,4 +1,5 @@
 
+/* DAILY GOAL */
 #daily-goal {
   background-color : #FCE43B;
   color            : rgb(68, 68, 68);
@@ -8,6 +9,22 @@
   font-size        : 20px;
 }
 
+/* DONE */
+
 .done {
   background-color: #E2E2E2 !important;
+}
+.done .ghx-end {
+  background-color: #E2E2E2 !important;
+  box-shadow: none !important;
+}
+
+/* BLOCKEd */
+
+.blocked {
+  background-color: #E5D5ED !important;
+}
+.blocked .ghx-end {
+  background-color: #E5D5ED !important;
+  box-shadow: none !important;
 }
