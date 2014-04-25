@@ -5,26 +5,27 @@
   "manifest_version" : 2,
 
   "permissions": [
-    "https://brander.atlassian.net/",
-    "https://github.com/",
-    "clipboardWrite",
-    "clipboardRead"
+    "storage",
+    "*://*/*"
   ],
-  "background" : {
-      "scripts" : ["Jira/AgileFormatter.js"]
-  },
   "content_scripts": [
     {
       "run_at"  : "document_end",
       "matches" : ["https://brander.atlassian.net/*"],
-      "css"     : ["Jira/Jira.css"],
-      "js"      : ["Lib/Helpers.js", "Lib/Jquery.js", "Jira/AgileFormatter.js"]
+      "css"     : ["jira/jira.css"],
+      "js"      : ["lib/lodash.js", "lib/poller.js", "lib/helpers.js", "lib/jquery.js", "jira/agile_formatter.js"]
     },
     {
       "run_at"  : "document_end",
       "matches" : ["https://github.com/*"],
-      "css"     : ["Git/Git.css"],
-      "js"      : ["Lib/Helpers.js", "Lib/Jquery.js", "Git/GitHelper.js"]
+      "css"     : ["git/git.css"],
+      "js"      : ["lib/lodash.js", "lib/poller.js", "lib/helpers.js", "lib/jquery.js", "git/git_helper.js"]
+    },
+    {
+      "run_at"  : "document_end",
+      "matches" : ["*://*/*"],
+      "css"     : ["json/json.css"],
+      "js"      : ["lib/lodash.js", "lib/helpers.js", "lib/jquery.js", "json/json_helper.js"]
     }
   ]
 }
