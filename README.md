@@ -7,7 +7,7 @@ Functionality
 =============
 
 * Agile Board
-  * Shades resolved tickets
+  * Shades resolved tickets as grey
   * Sets the goal line as gold bar
   * Shades tickets in the blocked epic as purple
 * GitHub
