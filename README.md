@@ -23,6 +23,10 @@ Functionality
 To Do
 =====
 
+* Fix's
+ * closed background should overwrite blocked background
+ * adjust logic that overwrites text in comments to allow for copying and pasing
+
 * Jira
  * Show completion status for dual FE, BE tickets
  * Automatically post PR links in the comments of a jira ticket when one is submitted
