@@ -28,6 +28,9 @@ To Do
  * adjust logic that overwrites text in comments to allow for copying and pasing
  * clean up link formatting to break at spaces, [broken PR for reference](https://github.com/brandingbrand/colehaan.api/pull/147)
 
+* Git
+ * Add post PR option to new PR submissions
+
 * Jira
  * Show completion status for dual FE, BE tickets
  * Automatically post PR links in the comments of a jira ticket when one is submitted
