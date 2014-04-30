@@ -24,7 +24,6 @@ To Do
 =====
 
 * Fix's
- * closed background should overwrite blocked background
  * adjust logic that overwrites text in comments to allow for copying and pasing, also causing jira links to be unclickable
  * clean up link formatting to break at spaces, [broken PR for reference](https://github.com/brandingbrand/colehaan.api/pull/147)
 
