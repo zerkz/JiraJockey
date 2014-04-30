@@ -1,3 +1,42 @@
+/////////////////////////////////////////////////////////////////////////////////////////
+//
+//    PAGE LOAD
+//
+/////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+// add the branch commands to the description
+var submitter      = $('.timeline-comment-header-text .author').first().text()
+  , branch         = $('.gh-header-meta .css-truncate-target').last().text()
+  , repo           = ($('meta[name="twitter:title"]').attr('content') || '').replace(/.*\//, '')
+  , gitCommands    = 'git checkout -b ' + submitter + '-' + branch + ' master\n<br>git pull git@github.com:' + submitter + '/' + repo + ' ' + branch + '\n<br>'
+  , commandButton  = '<div id="gitCommands" class="comment">' + gitCommands + '</div>'
+
+$('.timeline-comment').first().after(commandButton);
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////
+//
+//    LISTENERS
+//
+/////////////////////////////////////////////////////////////////////////////////////////
+https://brander.atlassian.net/rest/api/2/issue/
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////
+//
+//    POLLING FUNCTIONS
+//
+/////////////////////////////////////////////////////////////////////////////////////////
+
 var poller = new Poller();
 
 poller.addFunc(linkTicket);
@@ -61,13 +100,3 @@ function formatLinks () {
     comment.append(text);
   })
 }
-
-// add the branch commands to the description
-var submitter      = $('.timeline-comment-header-text .author').first().text()
-  , branch         = $('.gh-header-meta .css-truncate-target').last().text()
-  , repo           = ($('meta[name="twitter:title"]').attr('content') || '').replace(/.*\//, '')
-  , gitCommands    = 'git checkout -b ' + submitter + '-' + branch + ' master\n<br>git pull git@github.com:' + submitter + '/' + repo + ' ' + branch + '\n<br>'
-  , commandButton  = '<div id="gitCommands" class="comment">' + gitCommands + '</div>'
-
-$('.timeline-comment').first().after(commandButton);
-
