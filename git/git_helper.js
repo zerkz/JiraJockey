@@ -7,7 +7,12 @@ poller.addFunc(formatLinks);
 poller.start();
 
 
+//
+// turn the ticket number into a link
+//
 function linkTicket () {
+  // if it's already formatted, return
+  if ($('.js-issue-title .bb_formatted').length) { return; }
 
   var prTitle    = $('.js-issue-title')
     , titleText  = prTitle.text()
@@ -18,7 +23,7 @@ function linkTicket () {
   // Convert the ticket number to a link 
   if (jiraTicket) {
     var href = 'https://brander.atlassian.net/browse/' + jiraTicket
-      , link = '<a href="' + href + '">' + jiraTicket + '</a>';
+      , link = '<a href="' + href + '" class="bb_formatted">' + jiraTicket + '</a>';
 
     prTitle.empty();
     prTitle.append(link);
@@ -26,6 +31,9 @@ function linkTicket () {
   }
 }
 
+//
+// make all localhost links clickable and only show the path
+//
 function formatLinks () {
   $('.comment-body').each(function (index, element) {
     // get the comment text and any localhost links
@@ -33,20 +41,19 @@ function formatLinks () {
       , text    = comment.html()
       , hrefs   = text.match(/(http:\/\/localhost:.*)\s/g);
 
-    // if we already formattted the links in this comment, return
-    if (comment.find('a.added').length) { return; }
+    // if we already formattted the links in this comment, or there aren't any links to format, return
+    if (!(!comment.find('a.bb_formatted').length && hrefs && hrefs.length)) { return; }
 
     // replace the links in the text string with link elements
     _.each(hrefs, function (href) {
-
       //make sure to preserve trailing elements, like <br> and <p>
-      var match    = href.match(/(http:\/\/localhost:\d+)(\/.*)(<.*)/) || []
+      var match    = href.match(/(http:\/\/localhost:\d+)(\/\S*)(<?.*)/) || []
         , host     = match[1]
         , path     = match[2]
         , trailing = match[3]
-        , link     = '<a href="' + host + path + '" class="added">' + path + '</a>' + trailing;
+        , link     = '<a href="' + host + path + '" class="bb_formatted">' + path + '</a>' + trailing;
 
-        text = text.replace(href, link);
+      text = text.replace(href, link);
     });
     
     // set the text in the comment
