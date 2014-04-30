@@ -1,10 +1,10 @@
 
 .octicon {
-  margin: 0px !important;
+  margin : 0px !important;
 }
 
 .minibutton {
-  margin-left: 10px;
+  margin-left : 10px;
 }
 
 #gitCommands {
@@ -21,4 +21,22 @@
   padding-left            : 30px;
   position                : relative;
   width                   : 75%;
+}
+
+#post-ticket {
+  vertical-align : middle;
+}
+
+.post-ticket {
+  bottom      : 50px;
+  color       : #777;
+  font-size   : 13px;
+  font-weight : bold;
+  left        : 10px;
+  position    : absolute;
+  right       : 10px;
+}
+
+.post-ticket label {
+  margin-left : 3px;
 }

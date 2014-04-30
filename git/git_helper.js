@@ -5,7 +5,6 @@
 /////////////////////////////////////////////////////////////////////////////////////////
 
 
-
 // add the branch commands to the description
 var submitter      = $('.timeline-comment-header-text .author').first().text()
   , branch         = $('.gh-header-meta .css-truncate-target').last().text()
@@ -17,19 +16,25 @@ $('.timeline-comment').first().after(commandButton);
 
 
 
-
 /////////////////////////////////////////////////////////////////////////////////////////
 //
 //    LISTENERS
 //
 /////////////////////////////////////////////////////////////////////////////////////////
-https://brander.atlassian.net/rest/api/2/issue/
 
+// if the post to ticket box is checket, post the PR
+$('.pull-request-composer button').on('click', function (e) {
+  var result = parseTitle($('#pull_request_title').val()) 
+    , path   = window.location.pathname
+    , fork   = path.replace(/\/compare.*/, '');
 
-
-
-
-
+  getLatestPr(fork, function (latestPr) {
+    var newPrNum = latestPr + 1;
+    if ($('#post-ticket').is(':checked') && result.ticket) {
+      postToTicket('PR submitted: https://github.com' + fork + '/pull/' + newPrNum, result.ticket);
+    }
+  });
+})
 
 /////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -37,10 +42,12 @@ https://brander.atlassian.net/rest/api/2/issue/
 //
 /////////////////////////////////////////////////////////////////////////////////////////
 
+
 var poller = new Poller();
 
 poller.addFunc(linkTicket);
 poller.addFunc(formatLinks);
+poller.addFunc(addCheckbox);
 
 // start the poller
 poller.start();
@@ -54,19 +61,16 @@ function linkTicket () {
   if ($('.js-issue-title .bb_formatted').length) { return; }
 
   var prTitle    = $('.js-issue-title')
-    , titleText  = prTitle.text()
-    , match      = titleText.match(/(^[A-Z]+-[0-9]+)(\s.*)/) || []
-    , jiraTicket = match[1]
-    , trailing   = match[2]
+    , result     = parseTitle(prTitle.text())
 
   // Convert the ticket number to a link 
-  if (jiraTicket) {
-    var href = 'https://brander.atlassian.net/browse/' + jiraTicket
-      , link = '<a href="' + href + '" class="bb_formatted">' + jiraTicket + '</a>';
+  if (result.ticket) {
+    var href = 'https://brander.atlassian.net/browse/' + result.ticket
+      , link = '<a href="' + href + '" class="bb_formatted">' + result.ticket + '</a>';
 
     prTitle.empty();
     prTitle.append(link);
-    prTitle.append(trailing)
+    prTitle.append(result.trailing)
   }
 }
 
@@ -99,4 +103,82 @@ function formatLinks () {
     comment.empty();
     comment.append(text);
   })
+}
+
+//
+// if its a PR, add the checkbox
+//
+function addCheckbox () {
+  if($('#post-ticket').length) { return; } 
+
+  var checkbox = '<div class="post-ticket">' +
+                    '<input type="checkbox" name="post-ticket" value="post-ticket" id="post-ticket" checked>' +
+                    '<label for="post-ticket">Post to ticket<label>' +
+                  '</div>';
+
+  $('.pull-request-composer .composer-meta .composer-submit').before(checkbox);
+}
+
+
+/////////////////////////////////////////////////////////////////////////////////////////
+//
+//    HELPERS
+//
+/////////////////////////////////////////////////////////////////////////////////////////
+
+
+function parseTitle (text) {
+  var match = text.match(/(^[A-Z]+-[0-9]+)(\s.*)/) || [];
+
+  return {
+    ticket   : match[1],
+    trailing : match[2]
+  }
+}
+
+function postToTicket (comment, ticket) {
+  $.ajax({
+    headers : { 
+      'Accept'       : 'application/json',
+      'Content-Type' : 'application/json' 
+    },
+    url      : 'https://brander.atlassian.net/rest/api/2/issue/' + ticket + '/comment',
+    data     : JSON.stringify({ body : comment }),
+    dataType : 'json',
+    method   : 'POST'
+  });
+}
+
+function getLatestPr(fork, callback) {
+
+  // get open PR's
+  function openPrs () {
+    return $.ajax({ url: 'https://github.com' + fork + '/pulls?direction=desc&page=1&sort=created&state=open' });
+  }
+
+  // get closed PR's
+  function closedPrs () {
+    return $.ajax({ url: 'https://github.com' + fork + '/pulls?direction=desc&page=1&sort=created&state=closed' });
+  }
+
+  // take the highest number pr
+  $.when(openPrs(), closedPrs()).done(function (open, closed) {
+    var latestPr = 0;
+    if (open.length) {
+      $(open[0]).find('.list-group-item-number').each(function (index, element) {
+        var prNum = parseInt($(element).text().replace('#', ''));
+        if (prNum > latestPr) { latestPr = prNum; }
+      });
+    }
+
+    if (closed.length) {
+      $(closed[0]).find('.list-group-item-number').each(function (index, element) {
+        var prNum = parseInt($(element).text().replace('#', ''));
+        if (prNum > latestPr) { latestPr = prNum; }
+      });
+    }
+
+
+    return callback(latestPr);
+  });
 }
