@@ -51,7 +51,7 @@ function formatLinks () {
         , host     = match[1]
         , path     = match[2]
         , trailing = match[3]
-        , link     = '<a href="' + host + path + '" class="bb_formatted">' + path + '</a>' + trailing;
+        , link     = '<a href="' + host + path.replace(/<.*>/, '') + '" class="bb_formatted">' + path + '</a>' + trailing;
 
       text = text.replace(href, link);
     });
@@ -64,9 +64,10 @@ function formatLinks () {
 
 // add the branch commands to the description
 var submitter      = $('.timeline-comment-header-text .author').first().text()
-  , branch         = $('.gh-header-meta .css-truncate-target').last().text()
+  , newBranch      = $('.current-branch').last().find('.css-truncate-target').last().text()
+  , sourceBranch   = $('.current-branch').first().find('.css-truncate-target').last().text()
   , repo           = ($('meta[name="twitter:title"]').attr('content') || '').replace(/.*\//, '')
-  , gitCommands    = 'git checkout -b ' + submitter + '-' + branch + ' master\n<br>git pull git@github.com:' + submitter + '/' + repo + ' ' + branch + '\n<br>'
+  , gitCommands    = 'git checkout -b ' + submitter + '-' + newBranch + ' ' + sourceBranch + '\n<br>git pull git@github.com:' + submitter + '/' + repo + ' ' + newBranch + ' &&<br>'
   , commandButton  = '<div id="gitCommands" class="comment">' + gitCommands + '</div>'
 
 $('.timeline-comment').first().after(commandButton);
