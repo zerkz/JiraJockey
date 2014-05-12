@@ -19,7 +19,11 @@
   box-shadow: none !important;
 }
 
-/* BLOCKEd */
+.done.ghx-end.ghx-selected-primary {
+  background-color: #C9FCC7 !important; 
+}
+
+/* BLOCKED */
 
 .blocked {
   background-color: #E5D5ED !important;

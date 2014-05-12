@@ -21,5 +21,5 @@ function formatGoal () {
 // shade completed issues
 function shadeTickets () {
   $('.aui-label:contains(BLOCKED)').closest('.js-issue').addClass('blocked');
-	$('.ghx-meta  .ghx-done').closest('.js-issue').addClass('done');
+	$('#ghx-content-group .ghx-done').closest('.js-issue').addClass('done');
 }
