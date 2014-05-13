@@ -29,6 +29,7 @@ To Do
 
 * Jira
  * Show completion status for dual FE, BE tickets
+ * fix ticket cutoff issue
 
 * json
  * persistant focus on a subprop accross page loads
