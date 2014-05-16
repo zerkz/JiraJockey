@@ -26,6 +26,7 @@ To Do
 
 * Git
  * Add post PR option to new PR submissions
+ * Disable submit PR button if console logs or writefiles are detected
 
 * Jira
  * Show completion status for dual FE, BE tickets
