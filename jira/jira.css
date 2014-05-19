@@ -8,7 +8,6 @@
   vertical-align   : bottom;
   font-size        : 20px;
 }
-
 /* DONE */
 
 .done {
@@ -31,4 +30,10 @@
 .blocked .ghx-end {
   background-color: #E5D5ED !important;
   box-shadow: none !important;
+}
+
+/* RESIZING CONTENT */
+
+.ghx-backlog-group {
+  margin-bottom: 60px;
 }
