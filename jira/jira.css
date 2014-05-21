@@ -11,29 +11,53 @@
 /* DONE */
 
 .done {
-  background-color: #E2E2E2 !important;
+  background-color : #E2E2E2 !important;
 }
 .done .ghx-end {
-  background-color: #E2E2E2 !important;
-  box-shadow: none !important;
+  background-color : #E2E2E2 !important;
+  box-shadow       : none !important;
 }
 
 .done.ghx-end.ghx-selected-primary {
-  background-color: #C9FCC7 !important; 
+  background-color : #C9FCC7 !important; 
 }
 
 /* BLOCKED */
 
 .blocked {
-  background-color: #E5D5ED !important;
+  background-color : #E5D5ED !important;
 }
 .blocked .ghx-end {
-  background-color: #E5D5ED !important;
-  box-shadow: none !important;
+  background-color : #E5D5ED !important;
+  box-shadow       : none !important;
+}
+
+/* TICKETS */
+
+.ghx-grabber {
+  width : 10px !important;
+
+}
+
+.ghx-issue-content { 
+  margin-left : 45px !important;
+}
+
+.avatar {
+  margin-left : 10px;
+  width       : 30px;
+  height      : 30px;
+  position    : absolute;
+  left        : 0;
+  top         : 0;
+}
+
+.subtask {
+  width: 10px;
 }
 
 /* RESIZING CONTENT */
 
 .ghx-backlog-group {
-  margin-bottom: 60px;
+  margin-bottom : 60px;
 }
