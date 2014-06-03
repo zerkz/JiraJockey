@@ -7,16 +7,21 @@ Functionality
 =============
 
 * Agile Board
+  * Converts in sprint open ticket ticket id bar to a progress bar of sub tasks
+  * Adds the photo of the assignee to the ticket entry
   * Shades resolved tickets as grey
   * Sets the goal line as gold bar
   * Shades tickets in the blocked epic as purple
+ 
 * GitHub
   * Changes ticket in title to link to jira ticket 
   * Added a box to the bottom of the first comment in the PR comtaining the commands to pull the pr
   * Converts localhost links in comments to clickable links, displaying only the path
  
 * Poller
-  * all style changes listed above will execute every tenth of a second for 30 seconds to accommadate for AJAX requests and restyling in both Jira and Git
+  * all style changes listed above will execute every tenth of a second for 30 seconds to accommadate for AJAX requests and restyling in both
+
+* Jira and Git
   * after two minutes of inactiviy on the page, the poller will cease
   * the timer is reset on a mouse move event
 
