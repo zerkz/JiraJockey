@@ -28,6 +28,8 @@ Functionality
 To Do
 =====
 
+* Jira
+ * set progress to orange if the last comment contains a PR
 
 * Git
  * Add post PR option to new PR submissions
