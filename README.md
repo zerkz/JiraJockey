@@ -32,6 +32,7 @@ To Do
  * set progress to orange if the last comment contains a PR
 
 * Git
+ * add pop up for open PR's in watched repo's 
  * Add post PR option to new PR submissions
  * Disable submit PR button if console logs or writefiles are detected
 
