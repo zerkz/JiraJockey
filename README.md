@@ -30,6 +30,7 @@ To Do
 
 * Jira
  * set progress to orange if the last comment contains a PR
+ * ctrl + up or down - move the currently selected items to the preceding or following box
 
 * Git
  * add pop up for open PR's in watched repo's 
