@@ -28,6 +28,9 @@ Functionality
 To Do
 =====
 
+* Home
+ * add home page to list open PR's, and tickets assigned to you in the sprint 
+
 * Jira
  * set progress to orange if the last comment contains a PR
  * ctrl + up or down - move the currently selected items to the preceding or following box
