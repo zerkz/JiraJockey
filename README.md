@@ -28,6 +28,10 @@ Functionality
 To Do
 =====
 
+* Global
+ * add tools button to toolbar, containing variout utils
+  * url (with QS) to object translator
+
 * Home
  * add home page to list open PR's, and tickets assigned to you in the sprint 
 
