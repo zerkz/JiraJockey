@@ -26,6 +26,12 @@
       "matches" : ["*://*/*"],
       "css"     : ["json/json.css"],
       "js"      : ["lib/lodash.js", "lib/helpers.js", "lib/jquery.js", "json/json_helper.js"]
+    },
+    {
+      "run_at"  : "document_end",
+      "matches" : ["*://*/*"],
+      "css"     : ["utils/utils.css"],
+      "js"      : ["lib/lodash.js", "lib/helpers.js", "lib/jquery.js", "utils/fe_defaults.js", "utils/fe_utils.js"]
     }
   ]
 }
