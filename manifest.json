@@ -13,25 +13,29 @@
       "run_at"  : "document_end",
       "matches" : ["https://brander.atlassian.net/*"],
       "css"     : ["jira/jira.css"],
-      "js"      : ["lib/lodash.js", "lib/poller.js", "lib/helpers.js", "lib/jquery.js", "jira/agile_formatter.js"]
+      "js"      : ["lib/lodash.js", "lib/poller.js", "lib/helpers.js", "lib/jquery.js", 
+                   "jira/agile_formatter.js"]
     },
     {
       "run_at"  : "document_end",
       "matches" : ["https://github.com/*"],
       "css"     : ["git/git.css"],
-      "js"      : ["lib/lodash.js", "lib/poller.js", "lib/helpers.js", "lib/jquery.js", "git/git_helper.js"]
+      "js"      : ["lib/lodash.js", "lib/poller.js", "lib/helpers.js", "lib/jquery.js", 
+                   "git/git_helper.js"]
     },
     {
       "run_at"  : "document_end",
       "matches" : ["*://*/*"],
       "css"     : ["json/json.css"],
-      "js"      : ["lib/lodash.js", "lib/helpers.js", "lib/jquery.js", "json/json_helper.js"]
+      "js"      : ["lib/lodash.js", "lib/helpers.js", "lib/jquery.js", 
+                   "json/json_helper.js"]
     },
     {
       "run_at"  : "document_end",
       "matches" : ["*://*/*"],
-      "css"     : ["utils/utils.css"],
-      "js"      : ["lib/lodash.js", "lib/helpers.js", "lib/jquery.js", "utils/fe_defaults.js", "utils/fe_utils.js"]
+      "css"     : ["assets/styling.css", "utilities/form_populator/populator.css"],
+      "js"      : ["lib/lodash.js", "lib/helpers.js", "lib/jquery.js", 
+                   "utilities/form_populator/formValues.js", "utilities/form_populator/nameValueMap.js", "utilities/form_populator/controller.js"]
     }
   ]
 }

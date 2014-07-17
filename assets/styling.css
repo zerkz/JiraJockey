@@ -1,0 +1,9 @@
+.jj-button {
+  background-color : #CACACA;
+  border : 1px solid #626262;
+  border-radius : 2px;
+  cursor : pointer;
+  display : inline-block;
+  font-weight : bold;
+  padding : 5px;
+}
