@@ -32,7 +32,7 @@
     },
     {
       "run_at"  : "document_end",
-      "matches" : ["*://*/*"],
+      "matches" : ["*://localhost/*"],
       "css"     : ["assets/styling.css", "utilities/form_populator/populator.css"],
       "js"      : ["lib/lodash.js", "lib/helpers.js", "lib/jquery.js", 
                    "utilities/form_populator/formValues.js", "utilities/form_populator/nameValueMap.js", "utilities/form_populator/controller.js"]
