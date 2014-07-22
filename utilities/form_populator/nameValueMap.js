@@ -41,4 +41,6 @@ titleValueMap.propagate('email', ['email address', 'emailaddress']);
 
 titleValueMap.propagate('phone', ['phone number']);
 
-titleValueMap.propagate('cvv', ['svc']);
+titleValueMap.propagate('cvv', ['svc', 'security code']);
+
+titleValueMap.propagate('number', ['card number']);
