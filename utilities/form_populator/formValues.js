@@ -28,6 +28,7 @@ var forms = {
 
     // default structure and language
     us : {
+      company : 'Branding Brand',
       phone   : '4123301234',
       email   : 'brand@brandingbrand.com',
       address : {
