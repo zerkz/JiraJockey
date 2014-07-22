@@ -1,7 +1,7 @@
 forms.country = getCookie('_bb_country').toLowerCase() || null
 
 var titleValueMap = {
-      // TODO : add locale/language specific titles
+      //addresses
       'country'      : forms.get('country'),
       'company name' : forms.get('company'),
       'first name'   : forms.get('name.first'),
@@ -15,6 +15,10 @@ var titleValueMap = {
       'email'        : forms.get('email'),
       'phone'        : forms.get('phone'),
 
+      //cc
+      'number' : forms.get('cc.number'),
+      'cvv'    : forms.get('cc.cvv'),
+
       // take a list of titles and apply the basetitle value to each as a subprop of the map
       propagate : function (baseTitle, titleSet) {
         _.each(titleSet, function (newTitle) {
@@ -23,7 +27,7 @@ var titleValueMap = {
       }
     }
 
-// porpagate values to alternate titles
+// propagate values to alternate titles
 
 titleValueMap.propagate('line1', ['address', 'address line 1']);
 
@@ -36,3 +40,5 @@ titleValueMap.propagate('zip', ['zip code','zipcode', 'postal', 'postcode', 'pos
 titleValueMap.propagate('email', ['email address', 'emailaddress']);
 
 titleValueMap.propagate('phone', ['phone number']);
+
+titleValueMap.propagate('cvv', ['svc']);
