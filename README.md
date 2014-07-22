@@ -33,7 +33,7 @@ To Do
   * url (with QS) to object translator
 
 * Home
- * add home page to list open PR's, and tickets assigned to you in the sprint 
+ * add home page to list open PR's, and tickets assigned to you in the sprint. possibly using the [Github API] (https://developer.github.com/v3/pulls/)
 
 * Jira
  * shade tickets with 'is blocked by' attribute
