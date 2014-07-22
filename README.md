@@ -26,7 +26,7 @@ Functionality
   * the timer is reset on a mouse move event
 
 * localhost:*
-  * added a `populate` button to the bottom of localhost pages. Using internal key-value pairs, it fills in forms on the page. NOTE 1: its works with localizations. NOTE 2: please update key value pairs as new ones are discovered. especially non-english
+  * Adds a `populate` button to the bottom of localhost pages. Using internal key-value pairs, it fills in forms on the page. *NOTE 1:* its works with localizations. *NOTE 2:* please update key value pairs as new ones are discovered. especially non-english
 
 To Do
 =====
