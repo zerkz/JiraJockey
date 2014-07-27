@@ -10,6 +10,7 @@ Functionality
   * Converts in sprint open ticket ticket id bar to a progress bar of sub tasks
   * Adds the photo of the assignee to the ticket entry
   * Shades resolved tickets as grey
+  * Shades in code review tickets as orange
   * Sets the goal line as gold bar
   * Shades tickets in the blocked epic as purple
  
@@ -33,14 +34,13 @@ To Do
 
 * Global
  * add tools button to toolbar, containing various utils
-  * url (with QS) to object translator
+    * url (with QS) to object translator
 
 * Home
  * add home page to list open PR's, and tickets assigned to you in the sprint. possibly using the [Github API] (https://developer.github.com/v3/pulls/)
 
 * Jira
  * shade tickets with 'is blocked by' attribute
- * set progress to orange if it is in the code review state
  * ctrl + up or down - move the currently selected items to the preceding or following box
 
 * Git
