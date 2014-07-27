@@ -32,7 +32,7 @@ To Do
 =====
 
 * Global
- * add tools button to toolbar, containing variout utils
+ * add tools button to toolbar, containing various utils
   * url (with QS) to object translator
 
 * Home
