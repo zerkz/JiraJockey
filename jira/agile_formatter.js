@@ -4,7 +4,7 @@ var goalLine1    = 'Goal Line'
   , poller       = new Poller();
 
 store.clear();
-
+console.log('===============================================================================================')
 poller.addFunc(formatGoal);
 poller.addFunc(shadeTickets);
 poller.addFunc(updateSprintData);
@@ -17,9 +17,13 @@ poller.start()
 //  POLLER FUNCTIONS
 //
 
+// only execucte if the mouse is up
+var mouseDown;
 
 //format the daily goal
 function formatGoal () {
+  if (mouseDown) { console.warn('mousedown, returning'); return; }
+
 	var dailyGoal = $(goalSelector).closest('.js-issue');
 	dailyGoal.empty();
 	dailyGoal.attr('id', 'daily-goal');
@@ -28,21 +32,27 @@ function formatGoal () {
 
 // shade completed issues
 function shadeTickets () {
+  if (mouseDown) { console.warn('  mousedown, returning'); return; }
+
   $('.aui-label:contains(BLOCKED)').closest('.js-issue').addClass('blocked');
-	$('#ghx-content-group .ghx-done').closest('.js-issue').addClass('done');
+	$('#ghx-backlog .ghx-done').closest('.js-issue').addClass('done');
 }
 
 // adds info to each ticket, makes a request to get the sprint data if necessary
 function updateSprintData () {
+  if (mouseDown) { console.warn('    mousedown, returning'); return; }
+
   var tickets = [];
 
   // build the ticket array
-  $('.ghx-sprint-group .js-issue:not(.ghx-done)').each(function () {
+  // $('.ghx-sprint-group .js-issue:not(.ghx-done)').each(function () {
+  $('.ghx-sprint-group .js-issue').each(function () {
     tickets.push($(this).data('issue-key'));
   });
 
   // for every non-completed ticket
-  $('.ghx-sprint-group .js-issue:not(.ghx-done)').map(function () {
+  // $('.ghx-sprint-group .js-issue:not(.ghx-done)').map(function () {
+  $('.ghx-sprint-group .js-issue').map(function () {
     var ticketId = $(this).data('issue-key');
 
     // get available data
@@ -91,7 +101,7 @@ function requestTicketData (ticketArray) {
     // make the request
     $.get('https://brander.atlassian.net/rest/api/2/search', query).done(function (response) {
       activeRequest = false;
-      if (!(response && response.issues && response.issues.length)) { return console.log('failed to update ticktets'); }
+      if (!(response && response.issues && response.issues.length)) { return; }
 
       // for each ticket returned
       _.each(response.issues, function (ticket) {
@@ -120,6 +130,9 @@ function formatTicket (id, ticketObj) {
 
   // color the ticket based on progress
   setProgressColor(progressBar, data.status.color);
+
+  // set the backgroud color
+  setTicketClass(ticket, data.status.name);
 
   // if there are subtasks, include them in teh progress bar
   var totalTasks = data.subtasks.length
@@ -164,7 +177,7 @@ function storeTicket (ticket) {
         status : {
           name  : findValue(ticket, 'fields.status.name'),
           color : findValue(ticket, 'fields.status.statusCategory.colorName')
-        },
+        },        
         subtasks : []
       });
 
@@ -196,3 +209,44 @@ function storeTicket (ticket) {
   store.set(ticketData);
   formatTicket(data.id, ticketData);
 }
+
+function setProgressColor (node, color) {
+  if (/blue-gray/i.test(color)) {
+    node.css('background-color', '#4a6785');
+    node.css('color', 'white');
+
+  // in progess
+  } else if (/yellow/i.test(color)) {
+    node.css('background-color', '#f6c342');
+
+  // done
+  } else {
+    node.css('background-color', '#14892c');
+    node.css('color', 'white')
+  }
+}
+
+
+function setTicketClass (ticket, status) {
+  console.warn(status);
+  if (/in\s*code\s*review/i.test(status)) {
+    ticket.addClass('in-review');
+
+  // in progess
+  } else if (/complete|closed|stage|deploy|qa/i.test(status)) {
+    ticket.addClass('done');
+  }
+}
+
+//
+//
+// FUNCTIONALITY AUGMENTATION
+//
+//
+
+// (SPEED) - keep track of mouse status to prevent reformatting while moving tickes
+// $('#ghx-backlog-column').on('mousedown', function () { console.log('settign mouse down'); mouseDown = true; });
+// $('#ghx-backlog-column').on('mouseup', function () { console.log('settign mouse up'); mouseDown = false; });
+
+$('body').on('mousedown', function () { console.log('settign mouse down'); mouseDown = true; });
+$('body').on('mouseup', function () { console.log('settign mouse up'); mouseDown = false; });

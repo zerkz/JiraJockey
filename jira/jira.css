@@ -11,10 +11,10 @@
 /* DONE */
 
 .done {
-  background-color : #E2E2E2 !important;
+  background-color : rgb(192, 192, 192) !important;
 }
 .done .ghx-end {
-  background-color : #E2E2E2 !important;
+  background-color : rgb(192, 192, 192) !important;
   box-shadow       : none !important;
 }
 
@@ -29,6 +29,16 @@
 }
 .blocked .ghx-end {
   background-color : #E5D5ED !important;
+  box-shadow       : none !important;
+}
+
+/* IN REVIEW */
+
+.in-review {
+  background-color : rgb(252, 189, 108) !important;
+}
+.in-review .ghx-end {
+  background-color : rgb(252, 189, 108) !important;
   box-shadow       : none !important;
 }
 
