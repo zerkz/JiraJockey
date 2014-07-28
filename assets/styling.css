@@ -7,3 +7,7 @@
   font-weight : bold;
   padding : 5px;
 }
+
+.hidden {
+  display: none;
+}
