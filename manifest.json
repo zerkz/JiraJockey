@@ -8,27 +8,31 @@
     "storage",
     "*://*/*"
   ],
+  "browser_action": {
+    "default_icon": "assets/icon.png",
+    "default_popup": "popup/popup.html"
+  },
   "content_scripts": [
     {
       "run_at"  : "document_end",
       "matches" : ["https://brander.atlassian.net/*"],
-      "css"     : ["jira/jira.css"],
+      "css"     : ["content_scripts/jira/jira.css"],
       "js"      : ["lib/lodash.js", "lib/poller.js", "lib/helpers.js", "lib/jquery.js", 
-                   "jira/agile_formatter.js"]
+                   "content_scripts/jira/agile_formatter.js"]
     },
     {
       "run_at"  : "document_end",
       "matches" : ["https://github.com/*"],
-      "css"     : ["git/git.css"],
+      "css"     : ["content_scripts/git/git.css"],
       "js"      : ["lib/lodash.js", "lib/poller.js", "lib/helpers.js", "lib/jquery.js", 
-                   "git/git_helper.js"]
+                   "content_scripts/git/git_helper.js"]
     },
     {
       "run_at"  : "document_end",
       "matches" : ["*://*/*"],
-      "css"     : ["json/json.css"],
+      "css"     : ["content_scripts/json/json.css"],
       "js"      : ["lib/lodash.js", "lib/helpers.js", "lib/jquery.js", 
-                   "json/json_helper.js"]
+                   "/content_scripts/json/json_helper.js"]
     },
     {
       "run_at"  : "document_end",
