@@ -1,0 +1,103 @@
+html {
+  margin: 0;
+  width:400px;
+}
+
+body {
+  margin: 0;
+  font-family: arial;
+}
+
+/*
+ * Header
+ */
+
+#tabs {
+  background-color: #d10000;
+  color: white;
+  display: table;
+  font-weight: bold;
+  width: 100%;
+}
+
+#tabs .tab {
+  cursor: pointer;
+  display: table-cell;
+  margin: auto;
+  padding: 5px;
+  text-align: center;
+  border: 1px solid #d4d4d4;
+}
+
+#tabs .tab .active {
+  border: 3px solid #d4d4d4;
+}
+
+
+/*
+ * PR Tab
+ */
+
+/* Repo Management */
+#repo-edit-form {
+  background-color: #d4d4d4;
+  border: 1px solid black;
+}
+
+#repo-edit-form #repo-text {
+  width: 394px;
+  height: 20px;
+  font: 18px;
+}
+
+#repo-edit-form .button-container {
+  display: table;
+  margin: auto;
+}
+
+#repo-edit-form .button-container div {
+  width: 199px;
+  display: table-cell;
+  cursor: pointer;
+  text-align: center;
+  border-bottom: 1px solid black;
+}
+
+#repo-edit-form .button-container div:first-of-type {
+  border-right: 1px solid black;
+}
+
+#repo-edit-form #minimizer {
+  cursor: pointer;
+  width:100%;
+  text-align: center;
+  border-color: black;
+}
+
+#maximizer {
+  cursor: pointer;
+  width:100%;
+  text-align: center;
+  border-color: black;
+  background-color: #d4d4d4;
+  border: 1px solid black;
+}
+
+/* Misc */
+
+#loader {
+  display: block;
+  margin: auto;
+  padding:20px;
+}
+
+/*
+ *
+ */
+
+
+
+
+/*
+ *
+ */

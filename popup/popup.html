@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+  <head>
+    <title>My Awesome Popup!</title>
+    <script src="../lib/jquery.js"></script>
+    <script src="./popup.js"></script>
+    <link href="./styling.css" rel="stylesheet" type="text/css">
+    <link href="../assets/styling.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+
+
+    <!-- Tab Headers -->
+    <div id="tabs">
+      <!-- PR Tab Header -->
+      <div class="tab" id="pr-tab-header" class="active">
+        PR's
+      </div>
+      <!-- Toola Tab Header -->
+      <div class="tab" id="tools-tab-header">
+        Tools
+      </div>
+    </div>
+
+
+    <div id="content">
+
+      <!-- PR Tab -->
+      <div id="pr-tab">
+
+
+        <!-- Repo Management -->
+        <div id="repo-edit-form" class="hidden">
+          <input type="text" id="repo-text" placeholder="Repo name(s) to add or remove">
+          <div class="button-container">
+            <div id="add-repo">Add</div>
+            <div id="remove-repo">Remove</div>
+          </div>
+          <div id="minimizer">-</div>
+        </div>
+        <div id="maximizer">+</div>
+
+        <!-- PR display -->
+
+        <img src="../assets/loader.gif" id="loader">
+
+        <div id="pr-list">
+          
+        </div>
+
+      </div>
+
+
+      <!-- Tools Tab -->
+      <div id="tools-tab" class="hidden">
+      
+
+      </div>
+
+    </div>
+
+
+  </body>
+</html>
