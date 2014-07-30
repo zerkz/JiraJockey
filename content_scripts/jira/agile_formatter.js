@@ -6,8 +6,8 @@ var goalLine1    = 'Goal Line'
 store.clear();
 console.log('===============================================================================================')
 poller.addFunc(formatGoal);
-poller.addFunc(shadeTickets);
 poller.addFunc(updateSprintData);
+poller.addFunc(shadeTickets);
 
 // start the poller
 poller.start()
@@ -126,7 +126,7 @@ function formatTicket (id, ticketObj) {
   if (!ticket.length) { return; }
 
   // add an image of the assignee
-  ticket.append('<img src="' + data.assignee.image + '" alt="' + data.assignee.name + '" title="' + data.assignee.name + '" class="avatar">');
+  // ticket.append('<img src="' + data.assignee.image + '" alt="' + data.assignee.name + '" title="' + data.assignee.name + '" class="avatar">');
 
   // color the ticket based on progress
   setProgressColor(progressBar, data.status.color);
