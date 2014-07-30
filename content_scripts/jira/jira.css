@@ -48,9 +48,9 @@
   width : 10px !important;
 }
 
-./*ghx-issue-content { 
-  margin-left : 45px !important;
-}*/
+.ghx-issue-content { 
+  margin-left : 10px !important;
+}
 
 .avatar {
   margin-left : 10px;
