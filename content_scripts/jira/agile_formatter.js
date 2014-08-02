@@ -3,8 +3,6 @@ var goalLine1    = 'Goal Line'
   , goalSelector = 'div[title="' + goalLine1 + '"] span, div[title="' + goalLine2 + '"] span'
   , poller       = new Poller();
 
-store.clear();
-console.log('===============================================================================================')
 poller.addFunc(formatGoal);
 poller.addFunc(updateSprintData);
 poller.addFunc(shadeTickets);
@@ -22,7 +20,7 @@ var mouseDown;
 
 //format the daily goal
 function formatGoal () {
-  if (mouseDown) { console.warn('mousedown, returning'); return; }
+  if (mouseDown) { return; }
 
 	var dailyGoal = $(goalSelector).closest('.js-issue');
 	dailyGoal.empty();
@@ -32,7 +30,7 @@ function formatGoal () {
 
 // shade completed issues
 function shadeTickets () {
-  if (mouseDown) { console.warn('  mousedown, returning'); return; }
+  if (mouseDown) { return; }
 
   $('.aui-label:contains(BLOCKED)').closest('.js-issue').addClass('blocked');
 	$('#ghx-backlog .ghx-done').closest('.js-issue').addClass('done');
@@ -40,7 +38,7 @@ function shadeTickets () {
 
 // adds info to each ticket, makes a request to get the sprint data if necessary
 function updateSprintData () {
-  if (mouseDown) { console.warn('    mousedown, returning'); return; }
+  if (mouseDown) { return; }
 
   var tickets = [];
 
