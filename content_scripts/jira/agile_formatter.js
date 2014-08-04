@@ -54,7 +54,7 @@ function updateSprintData () {
     var ticketId = $(this).data('issue-key');
 
     // get available data
-    store.get(ticketId, function (data) {
+    STORE.get(ticketId, function (data) {
 
       // if data was found, use it
       if (data && Object.keys(data).length) {
@@ -204,7 +204,7 @@ function storeTicket (ticket) {
 
   var ticketData = {};
   ticketData[data.id] = data;
-  store.set(ticketData);
+  STORE.set(ticketData);
   formatTicket(data.id, ticketData);
 }
 
@@ -246,5 +246,5 @@ function setTicketClass (ticket, status) {
 // $('#ghx-backlog-column').on('mousedown', function () { console.log('settign mouse down'); mouseDown = true; });
 // $('#ghx-backlog-column').on('mouseup', function () { console.log('settign mouse up'); mouseDown = false; });
 
-$('body').on('mousedown', function () { console.log('settign mouse down'); mouseDown = true; });
-$('body').on('mouseup', function () { console.log('settign mouse up'); mouseDown = false; });
+$('body').on('mousedown', function () { mouseDown = true; });
+$('body').on('mouseup', function () { mouseDown = false; });

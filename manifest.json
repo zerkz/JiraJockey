@@ -6,14 +6,22 @@
 
   "permissions": [
     "storage",
+    "*://*/*",
+    "cookies",
     "*://*/*"
   ],
+  "background" : {
+    "scripts" : ["lib/lodash.js", "lib/helpers.js", "lib/jquery.js", 
+                   "lib/cache.js", "lib/jira_helpers.js", "lib/globals.js", 
+                   "background_scripts/jira_cache_updater.js"]
+  },
   "content_scripts": [
     {
       "run_at"  : "document_end",
       "matches" : ["https://brander.atlassian.net/*"],
       "css"     : ["content_scripts/jira/jira.css"],
       "js"      : ["lib/lodash.js", "lib/poller.js", "lib/helpers.js", "lib/jquery.js", 
+                   "lib/globals.js", 
                    "content_scripts/jira/agile_formatter.js"]
     },
     {
@@ -22,13 +30,6 @@
       "css"     : ["content_scripts/git/git.css"],
       "js"      : ["lib/lodash.js", "lib/poller.js", "lib/helpers.js", "lib/jquery.js", 
                    "content_scripts/git/git_helper.js"]
-    },
-    {
-      "run_at"  : "document_end",
-      "matches" : ["*://*/*"],
-      "css"     : ["content_scripts/json/json.css"],
-      "js"      : ["lib/lodash.js", "lib/helpers.js", "lib/jquery.js", 
-                   "/content_scripts/json/json_helper.js"]
     },
     {
       "run_at"  : "document_end",
