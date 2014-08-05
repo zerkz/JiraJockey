@@ -8,7 +8,7 @@
     "storage",
     "*://*/*"
   ],
-  "options_page": "/views/jira.html",
+  "options_page": "/views/jira/jira.html",
   "background" : {
     "scripts" : ["lib/external/lodash.js", "lib/external/jquery.js",
                    "lib/helpers.js", "lib/cache.js", "lib/jira_helpers.js", "lib/globals.js", 
