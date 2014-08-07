@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Test Extension Options</title>
+</head>
+
+<script src="../../lib/external/jquery.js"></script>
+<script src="../../lib/external/lodash.js"></script>
+<script src="../../lib/globals.js"></script>
+<script src="../../lib/cache.js"></script>
+<script src="../../lib/widgets/cache_display.js"></script>
+
+<script src="./script.js"></script>
+
+<link href="./style.css" rel="stylesheet"/>
+
+<body>
+  <div class="top-bar">
+
+    <div class="box">
+      <div> 
+        Currently caching rapidBoardId = (<span id="active_board"></span>)
+      </div>
+
+      <label>
+        Enter the rapidBoardId you want to cache</br>
+        <input type="text" id="rapid_id_field" type="number">
+        <button id="save_rapid_id">Save</button>
+      </label>
+    </div>
+
+    <div class="box">
+      <label>Agile Cache date: <span></span> (<span></span> hours old)</label>
+      <label>user Cache date: <span></span> (<span></span> hours old)</label>
+    </div>
+
+  </div>
+
+  <div id="content"></div>
+</body>
+</html>
