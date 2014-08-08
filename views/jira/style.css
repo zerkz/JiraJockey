@@ -7,12 +7,12 @@ body {
 }
 
 .top-bar {
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid #cccccc;
   height: 100px;
 }
 
 .top-bar .box {
-  border-right: 1px solid gray;
+  border-right: 1px solid #cccccc;
   float: left;
   padding: 10px;
   width: 300px;
@@ -27,8 +27,4 @@ body {
   margin-top: 5px;
   width: 100%;
   display: block;
-}
-
-#contnet {
-  margin-top: 100px;
 }
