@@ -10,8 +10,7 @@ jiraAPI.getAgileBoardSummary(rapidBoardId, function (tickets) {
 });
 
 poller.addFunc(formatGoal);
-poller.addFunc(shadeTickets);
-// poller.addFunc(udateTicketFormatting);
+poller.addFunc(udateTicketFormatting);
 
 // start the poller
 poller.start()
@@ -32,14 +31,6 @@ function formatGoal () {
 	dailyGoal.empty();
 	dailyGoal.attr('id', 'daily-goal');
 	dailyGoal.text('Daily Goal');
-}
-
-// shade completed issues
-function shadeTickets () {
-  if (mouseDown) { return; }
-
-  $('.aui-label:contains(BLOCKED)').closest('.js-issue').addClass('blocked');
-	// $('#ghx-backlog .ghx-done').closest('.js-issue').addClass('done');
 }
 
 // adds info to each ticket, makes a request to get the sprint data if necessary
@@ -68,12 +59,13 @@ function formatTicket (ticket) {
 
   // get the useful data from the ticket
   var key         = ticket.key
-    , statusName  = findValue(ticket, 'fields.status.name')
-    , statusColor = findValue(ticket, 'fields.status.statusCategory.colorName')
-    , subtasks    = _.map(findValue(ticket, 'fields.subtasks', []), function (subtask, index) {
-        return findValue(subtask, 'fields.status.statusCategory.colorName', null)
+    , statusName  = findValue(ticket, 'statusName')
+    , statusColor = findValue(ticket, 'status.statusCategory.colorName')
+    , subtasks    = _.map(findValue(ticket, 'subtasks', []), function (subtask, index) {
+        return findValue(subtask, 'status.statusCategory.colorName', null)
       });
-console.log(ticket)
+
+
   var ticket      = $('.js-issue[data-issue-key=' + key + ']:not(.formatted):not(#daily-goal)')
     , progressBar = ticket.find('.ghx-grabber');
 
@@ -125,7 +117,6 @@ function setProgressBarSubtasks (node, subtasks) {
 //
 // set the status of a provided ticket
 function setTicketClass (ticket, status) {
-    console.warn(status)
   // in code review
   if (/in\s*code\s*review/i.test(status)) {
     ticket.addClass('in-review');
@@ -135,7 +126,7 @@ function setTicketClass (ticket, status) {
     ticket.addClass('done');
 
   // blocked
-  } else if (false) {
+  } else if (ticket.find('.aui-label:contains(BLOCKED)').length) {
     ticket.addClass('blocked');
   }
 }
