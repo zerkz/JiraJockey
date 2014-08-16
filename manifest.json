@@ -11,7 +11,7 @@
   "options_page": "/views/jira/jira.html",
   "background" : {
     "scripts" : ["lib/external/lodash.js", "lib/external/jquery.js",
-                   "lib/helpers.js", "lib/cache.js", "lib/jira_helpers.js", "lib/globals.js", 
+                   "lib/helpers.js", "lib/cache.js",  "lib/jira_helpers.js", "lib/globals.js", 
                    "background_scripts/jira_cache_updater.js"]
   },
   "content_scripts": [
@@ -20,7 +20,7 @@
       "matches" : ["https://brander.atlassian.net/*"],
       "css"     : ["content_scripts/jira/jira.css"],
       "js"      : ["lib/external/lodash.js", "lib/external/jquery.js", 
-                     "lib/poller.js", "lib/helpers.js", "lib/globals.js", 
+                     "lib/globals.js", "lib/poller.js", "lib/helpers.js", "lib/cache.js", "lib/jira_helpers.js",
                      "content_scripts/jira/agile_formatter.js"]
     },
     {
