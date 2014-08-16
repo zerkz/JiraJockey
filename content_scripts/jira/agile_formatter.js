@@ -10,7 +10,7 @@ jiraAPI.getAgileBoardSummary(rapidBoardId, function (tickets) {
 });
 
 poller.addFunc(formatGoal);
-poller.addFunc(udateTicketFormatting);
+poller.addFunc(updateTicketFormatting);
 
 // start the poller
 poller.start()
