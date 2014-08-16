@@ -10,7 +10,6 @@ $( document ).ready(function () {
     chrome.storage.sync.set({ 
       rapidViewId : newId 
     }, function (result) {
-      console.log('wat')
       $('#active_board').text(newId);
     });
   })
@@ -20,7 +19,13 @@ $( document ).ready(function () {
   //
   chrome.storage.sync.get('rapidViewId', function (items) {
     $('#active_board').text(items.rapidViewId);
+  
+    $('#update-button').on('click', function () {
+      updateUserCache()
+      updateAgileCache(null, null, items.rapidViewId)
+    })
   });
+
 
   //
   // load the jira cache widget

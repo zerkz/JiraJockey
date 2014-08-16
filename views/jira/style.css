@@ -28,3 +28,9 @@ body {
   width: 100%;
   display: block;
 }
+
+#update-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
