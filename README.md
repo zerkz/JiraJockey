@@ -45,7 +45,7 @@ To Do
  * add home page to list open PR's, and tickets assigned to you in the sprint. possibly using the [Github API] (https://developer.github.com/v3/pulls/)
 
 * Jira
- * cache all ticket data retreived and render it if a 400 page is shown
+ * add buttons to hover to quickly navigate the agile board when moving tickets
  * shade tickets with 'is blocked by' attribute
  * ctrl + up or down - move the currently selected items to the preceding or following box
 
