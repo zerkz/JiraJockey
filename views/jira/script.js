@@ -7,7 +7,7 @@ $( document ).ready(function () {
     var newId = $('#rapid_id_field').val();
       console.log(newId)      
 
-    chrome.storage.sync.set({ 
+    chrome.storage.local.set({ 
       rapidViewId : newId 
     }, function (result) {
       $('#active_board').text(newId);
@@ -17,7 +17,7 @@ $( document ).ready(function () {
   //
   // get the display id on page load
   //
-  chrome.storage.sync.get('rapidViewId', function (items) {
+  chrome.storage.local.get('rapidViewId', function (items) {
     $('#active_board').text(items.rapidViewId);
   
     $('#update-button').on('click', function () {

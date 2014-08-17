@@ -5,9 +5,7 @@ var goalLine1    = 'Goal Line'
 
 // get the agile board to update the cache, since the cache is used in ticket shading
 var rapidBoardId = (window.location.search.match((/rapidView=(\d+)/)) || [] ) [1];
-jiraAPI.getAgileBoardSummary(rapidBoardId, function (tickets) {
-  updateAgileCache(updateTicketFormatting, tickets);
-});
+
 
 poller.addFunc(formatGoal);
 poller.addFunc(updateTicketFormatting);
@@ -37,9 +35,8 @@ function formatGoal () {
 function updateTicketFormatting () {
   if (mouseDown) { return; }
 
-  // use the cache to augment ticket info, use that data to format the ticket
-  getAgileCache(function (cache) {
-    _.each(cache.value || [],  formatTicket);
+  jiraAPI.getAgileBoardSummary(rapidBoardId, function (tickets) {
+    _.each(tickets || [],  formatTicket);
   });
 }
 
