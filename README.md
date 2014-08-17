@@ -3,8 +3,13 @@ JiraJockey
 
 To add to chrome, go to `menu > settings > extensions` check the `Develper mode` box. then  select `Load unpacked extension` and load the JiraJockey directory
 
+To enable the cache to store your agileboard, go to the options page in the chrome extensions settings, and enter the agile board ID where prompted
+
 Functionality
 =============
+
+* Jira Cache
+  * a half hour long cache of the agile board and use tickets is polled/updated through a background script. it is set to diplay if jira is down, or it is accessible through the options page 
 
 * Agile Board
   * Converts in sprint open ticket ticket id bar to a progress bar of sub tasks
