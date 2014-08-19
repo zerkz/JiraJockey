@@ -1,41 +1,43 @@
 {
   "name"             : "Jira Jockey",
   "description"      :"http://stackoverflow.com/questions/14068879",
-  "version"          : "1.1",
+  "version"          : "1.11",
   "manifest_version" : 2,
 
   "permissions": [
     "storage",
     "*://*/*"
   ],
+  "options_page": "/views/jira/jira.html",
+  "background" : {
+    "scripts" : ["lib/external/lodash.js", "lib/external/jquery.js",
+                   "lib/helpers.js", "lib/cache.js",  "lib/jira_helpers.js", "lib/globals.js", 
+                   "background_scripts/jira_cache_updater.js"]
+  },
   "content_scripts": [
     {
       "run_at"  : "document_end",
       "matches" : ["https://brander.atlassian.net/*"],
       "css"     : ["content_scripts/jira/jira.css"],
-      "js"      : ["lib/lodash.js", "lib/poller.js", "lib/helpers.js", "lib/jquery.js", 
-                   "content_scripts/jira/agile_formatter.js"]
+      "js"      : ["lib/external/lodash.js", "lib/external/jquery.js", 
+                     "lib/globals.js", "lib/poller.js", "lib/helpers.js", "lib/cache.js", "lib/jira_helpers.js",
+                     "content_scripts/jira/agile_formatter.js"]
     },
     {
       "run_at"  : "document_end",
       "matches" : ["https://github.com/*"],
       "css"     : ["content_scripts/git/git.css"],
-      "js"      : ["lib/lodash.js", "lib/poller.js", "lib/helpers.js", "lib/jquery.js", 
-                   "content_scripts/git/git_helper.js"]
-    },
-    {
-      "run_at"  : "document_end",
-      "matches" : ["*://*/*"],
-      "css"     : ["content_scripts/json/json.css"],
-      "js"      : ["lib/lodash.js", "lib/helpers.js", "lib/jquery.js", 
-                   "/content_scripts/json/json_helper.js"]
+      "js"      : ["lib/external/lodash.js", "lib/external/jquery.js", 
+                     "lib/poller.js", "lib/helpers.js", 
+                     "content_scripts/git/git_helper.js"]
     },
     {
       "run_at"  : "document_end",
       "matches" : ["*://localhost/*"],
-      "css"     : ["assets/styling.css", "utilities/form_populator/populator.css"],
-      "js"      : ["lib/lodash.js", "lib/helpers.js", "lib/jquery.js", 
-                   "utilities/form_populator/formValues.js", "utilities/form_populator/nameValueMap.js", "utilities/form_populator/controller.js"]
+      "css"     : ["assets/styling.css", "content_scripts/utilities/form_populator/populator.css"],
+      "js"      : ["lib/external/lodash.js", "lib/external/jquery.js",
+                     "lib/helpers.js",  
+                     "content_scripts/utilities/form_populator/formValues.js", "content_scripts/utilities/form_populator/nameValueMap.js", "content_scripts/utilities/form_populator/controller.js"]
     }
   ]
 }

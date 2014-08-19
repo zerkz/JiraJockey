@@ -72,3 +72,15 @@ var submitter      = $('.timeline-comment-header-text .author').first().text()
 
 $('.timeline-comment').first().after(commandButton);
 
+console.log('hmm')
+// if this is a comparicon page
+if (/\/compare\//.test(window.location)) {
+  var prompt = '<div id="jira-prompt">' + 
+                 '<input type="checkbox" id="transfer" value="code-review"> Transition ticket?<br>' +
+                 '<input type="text" placeholder="Time spent">' +
+                 '<input type="text" placeholder="Assign to">' +
+                 '<input type="text" placeholder="Additional comments">' +
+               '</div>'
+  $('.pull-request-composer .composer-meta').append(prompt);
+
+}

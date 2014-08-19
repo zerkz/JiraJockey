@@ -1,0 +1,43 @@
+sumamry
+
+Remote Address:131.103.27.210:443
+Request URL:https://brander.atlassian.net/secure/CommentAssignIssue.jspa?atl_token=BI01-6QWY-XCMA-JSV3%7C883f68fcd42073fcbd790dcf82349be5c0eb5c04%7Clin
+Request Method:POST
+Status Code:200 OK
+
+form
+
+Accept:text/html, */*; q=0.01
+Accept-Encoding:gzip,deflate,sdch
+Accept-Language:en-US,en;q=0.8
+Connection:keep-alive
+Content-Length:335
+Content-Type:application/x-www-form-urlencoded; charset=UTF-8
+Cookie:__atl_path=172.24.36.101.1397186464727060; ondemand.autologin=0dSi52gQf6flDRdqdyhz3g00; atlassian.xsrf.token=BI01-6QWY-XCMA-JSV3|883f68fcd42073fcbd790dcf82349be5c0eb5c04|lin; AJS.conglomerate.cookie="|"; JSESSIONID=069F8BD3E5BB5F16C8969C28D616911F; studio.crowd.tokenkey=0dSi52gQf6flDRdqdyhz3g00; __utma=150792037.1482804742.1397186449.1408330862.1408336449.55; __utmb=150792037.2.10.1408336449; __utmc=150792037; __utmz=150792037.1406322097.27.5.utmcsr=github.com|utmccn=(referral)|utmcmd=referral|utmcct=/brandingbrand/dockers.api/pull/106; __utma=1.1141359021.1397186449.1408330862.1408336449.55; __utmb=1.2.10.1408336449; __utmc=1; __utmz=1.1406322097.27.5.utmcsr=github.com|utmccn=(referral)|utmcmd=referral|utmcct=/brandingbrand/dockers.api/pull/106
+Host:brander.atlassian.net
+Origin:https://brander.atlassian.net
+Referer:https://brander.atlassian.net/browse/BFWAPJS-44
+User-Agent:Mozilla/5.0 (X11; Linux i686) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/34.0.1847.116 Safari/537.36
+X-AUSERNAME:john.hofrichter
+X-Requested-With:XMLHttpRequest
+Query String Parametersview sourceview URL encoded
+atl_token:BI01-6QWY-XCMA-JSV3|883f68fcd42073fcbd790dcf82349be5c0eb5c04|lin
+
+form
+
+inline:true
+decorator:dialog
+action:361
+id:166395
+viewIssueKey:
+assignee:
+worklog_activate:true
+worklog_timeLogged:
+worklog_startDate:18/Aug/14 12:41 AM
+worklog_adjustEstimate:auto
+isCreateIssue:false
+isEditIssue:false
+duedate:
+comment:
+commentLevel:
+atl_token:BI01-6QWY-XCMA-JSV3|883f68fcd42073fcbd790dcf82349be5c0eb5c04|lin

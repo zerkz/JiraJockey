@@ -22,3 +22,9 @@
   position                : relative;
   width                   : 75%;
 }
+
+#jira-prompt input[type="text"] {
+  width: 90%;
+  margin: auto;
+  margin-top:5px;
+}
