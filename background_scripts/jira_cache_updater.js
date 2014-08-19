@@ -12,9 +12,8 @@ function cacheUpdater () {
   });
 
   getAgileCache(function (results) {
-    // if (results.expired) {
-      console.log('updating')
+    if (results.expired) {
       updateAgileCache();
-    // }
+    }
   });
 }

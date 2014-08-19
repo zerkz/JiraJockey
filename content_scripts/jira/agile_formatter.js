@@ -6,6 +6,10 @@ var goalLine1    = 'Goal Line'
 // get the agile board to update the cache, since the cache is used in ticket shading
 var rapidBoardId = (window.location.search.match((/rapidView=(\d+)/)) || [] ) [1];
 
+// overwrite old summary
+jiraAPI.getAgileBoardSummary(rapidBoardId, function (tickets) {
+    STORE.set('agileSummary', tickets);
+  });
 
 poller.addFunc(formatGoal);
 poller.addFunc(updateTicketFormatting);
@@ -25,17 +29,17 @@ var mouseDown;
 function formatGoal () {
   if (mouseDown) { return; }
 
-	var dailyGoal = $(goalSelector).closest('.js-issue');
-	dailyGoal.empty();
-	dailyGoal.attr('id', 'daily-goal');
-	dailyGoal.text('Daily Goal');
+  var dailyGoal = $(goalSelector).closest('.js-issue');
+  dailyGoal.empty();
+  dailyGoal.attr('id', 'daily-goal');
+  dailyGoal.text('Daily Goal');
 }
 
 // adds info to each ticket, makes a request to get the sprint data if necessary
 function updateTicketFormatting () {
   if (mouseDown) { return; }
 
-  jiraAPI.getAgileBoardSummary(rapidBoardId, function (tickets) {
+  STORE.get('agileSummary', function (tickets) {
     _.each(tickets || [],  formatTicket);
   });
 }
