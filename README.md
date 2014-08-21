@@ -37,6 +37,9 @@ Functionality
 To Do
 =====
 
+* locaclhost:*
+ * remove populate by default, add it to the options page to enable 
+ 
 * Global
  * add tools button to toolbar, containing various utils
     * url (with QS) to object translator
@@ -45,11 +48,13 @@ To Do
  * add home page to list open PR's, and tickets assigned to you in the sprint. possibly using the [Github API] (https://developer.github.com/v3/pulls/)
 
 * Jira
+ * __high-priority__ add color for QA (green)
  * add buttons to hover to quickly navigate the agile board when moving tickets
  * shade tickets with 'is blocked by' attribute
  * ctrl + up or down - move the currently selected items to the preceding or following box
 
 * Git
+ * __high-priority__ add logic to close tickets and assign to user
  * add pop up for open PR's in watched repo's 
  * Add post PR option to new PR submissions
  * Disable submit PR button if console logs or writefiles are detected
