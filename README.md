@@ -16,6 +16,7 @@ Functionality
   * Adds the photo of the assignee to the ticket entry
   * Shades resolved tickets as grey
   * Shades in code review tickets as orange
+  * Shades ready for QA tickets as green
   * Sets the goal line as gold bar
   * Shades tickets in the blocked epic as purple
  
@@ -48,7 +49,6 @@ To Do
  * add home page to list open PR's, and tickets assigned to you in the sprint. possibly using the [Github API] (https://developer.github.com/v3/pulls/)
 
 * Jira
- * __high-priority__ add color for QA (green)
  * add buttons to hover to quickly navigate the agile board when moving tickets
  * shade tickets with 'is blocked by' attribute
  * ctrl + up or down - move the currently selected items to the preceding or following box

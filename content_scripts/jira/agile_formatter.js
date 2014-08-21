@@ -152,6 +152,9 @@ function setTicketClass (ticket, status) {
   if (/in\s*code\s*review/i.test(status)) {
     ticket.addClass('in-review');
 
+  } else if (/qa.*stage/i.test(status)) {
+    ticket.addClass('in-qa');
+
   // in progess
   } else if (/complete|closed|stage|deploy|qa/i.test(status)) {
     ticket.addClass('done');
