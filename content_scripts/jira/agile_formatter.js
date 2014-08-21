@@ -13,7 +13,8 @@ jiraAPI.getAgileBoardSummary(rapidBoardId, function (tickets) {
 
 poller.addFunc(formatGoal);
 poller.addFunc(updateTicketFormatting);
-poller.addFunc(addUtilities)
+poller.addFunc(addUtilities);
+poller.addFunc(widgetLoader)
 
 // start the poller
 poller.start()
@@ -74,6 +75,12 @@ function updateTicketFormatting () {
   });
 }
 
+function widgetLoader () {
+  // if jira is down, append the cache widget
+  if($('#notifications h1:contains(Page unavailable)').length && !$('#jj-cache-widget').length) {
+    jiraCacheWidget.load('#notifications');
+  }
+}
 
 //
 //  HELPERS
