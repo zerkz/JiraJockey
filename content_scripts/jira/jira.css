@@ -10,6 +10,9 @@
 }
 /* DONE */
 
+.hide-complete .done {
+  display: none;
+}
 .done {
   background-color : rgb(192, 192, 192) !important;
 }
@@ -20,6 +23,16 @@
 
 .done.ghx-end.ghx-selected-primary {
   background-color : #C9FCC7 !important; 
+}
+
+/* IN QA */
+
+.in-qa {
+  background-color : rgb(145, 209, 124) !important;
+}
+.in-qa .ghx-end {
+  background-color : rgb(145, 209, 124) !important;
+  box-shadow       : none !important;
 }
 
 /* BLOCKED */
@@ -69,4 +82,13 @@
 
 .ghx-backlog-group {
   margin-bottom : 60px;
+}
+
+
+/* HIDE-COMPLETE */
+
+#hide-complete {
+  display: inline-block;
+  float: right;
+  margin-top: 10px;
 }

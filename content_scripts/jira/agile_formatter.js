@@ -13,6 +13,8 @@ jiraAPI.getAgileBoardSummary(rapidBoardId, function (tickets) {
 
 poller.addFunc(formatGoal);
 poller.addFunc(updateTicketFormatting);
+poller.addFunc(addUtilities);
+poller.addFunc(widgetLoader)
 
 // start the poller
 poller.start()
@@ -35,6 +37,35 @@ function formatGoal () {
   dailyGoal.text('Daily Goal');
 }
 
+function addUtilities () {
+
+  //
+  // hide complete utlility
+  //
+  if (!$('#hide-complete').length) {
+    STORE.get('hide-complete', function (checked) {
+      var checked = checked ? 'checked' : ''
+      checked ? $('.js-issue-list').addClass('hide-complete') : $('.js-issue-list').removeClass('hide-complete')
+      var hideCheckBox = '<div id="hide-complete">' +
+                            '<input type="checkbox" ' + checked + '>' +
+                            '<label>hide completed issues<label>' +
+                          '</div>';
+
+      $('.ghx-assigned-work-stats').append(hideCheckBox);
+
+      // set up the listeners to handle updating the store and container
+      var $hideComplete = $('#hide-complete input')
+        , $container    = $('.js-issue-list')
+
+      $hideComplete.on('click', function () {
+        var isChecked = $hideComplete.is(':checked');
+        STORE.set('hide-complete', isChecked);
+        isChecked ? $container.addClass('hide-complete') : $container.removeClass('hide-complete')
+      });
+    });
+  }
+}
+
 // adds info to each ticket, makes a request to get the sprint data if necessary
 function updateTicketFormatting () {
   if (mouseDown) { return; }
@@ -44,6 +75,12 @@ function updateTicketFormatting () {
   });
 }
 
+function widgetLoader () {
+  // if jira is down, append the cache widget
+  if($('#notifications h1:contains(Page unavailable)').length && !$('#jj-cache-widget').length) {
+    jiraCacheWidget.load('#notifications');
+  }
+}
 
 //
 //  HELPERS
@@ -121,6 +158,9 @@ function setTicketClass (ticket, status) {
   // in code review
   if (/in\s*code\s*review/i.test(status)) {
     ticket.addClass('in-review');
+
+  } else if (/qa.*stage/i.test(status)) {
+    ticket.addClass('in-qa');
 
   // in progess
   } else if (/complete|closed|stage|deploy|qa/i.test(status)) {

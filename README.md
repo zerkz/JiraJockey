@@ -16,6 +16,7 @@ Functionality
   * Adds the photo of the assignee to the ticket entry
   * Shades resolved tickets as grey
   * Shades in code review tickets as orange
+  * Shades ready for QA tickets as green
   * Sets the goal line as gold bar
   * Shades tickets in the blocked epic as purple
  
@@ -37,6 +38,9 @@ Functionality
 To Do
 =====
 
+* locaclhost:*
+ * remove populate by default, add it to the options page to enable 
+ 
 * Global
  * add tools button to toolbar, containing various utils
     * url (with QS) to object translator
@@ -50,6 +54,7 @@ To Do
  * ctrl + up or down - move the currently selected items to the preceding or following box
 
 * Git
+ * __high-priority__ add logic to close tickets and assign to user
  * add pop up for open PR's in watched repo's 
  * Add post PR option to new PR submissions
  * Disable submit PR button if console logs or writefiles are detected

@@ -1,4 +1,4 @@
-$('body').append('<div id="populator" class="jj-button">populate</div>');
+// $('body').append('<div id="populator" class="jj-button">populate</div>');
 
 
 $('#populator').on('click', function (populator) {
