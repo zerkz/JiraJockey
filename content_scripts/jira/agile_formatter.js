@@ -58,7 +58,7 @@ function addUtilities () {
         , $container    = $('.js-issue-list')
 
       $hideComplete.on('click', function () {
-        var isChecked = $hideComplete.is(':checked');
+        var isChecked = this.checked;
         STORE.set('hide-complete', isChecked);
         isChecked ? $container.addClass('hide-complete') : $container.removeClass('hide-complete')
       });
