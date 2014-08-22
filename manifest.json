@@ -1,7 +1,7 @@
 {
   "name"             : "Jira Jockey",
   "description"      : "A plugin to fill the gaps in jira",
-  "version"          : "1.20",
+  "version"          : "1.21",
   "manifest_version" : 2,
 
   "permissions": [
