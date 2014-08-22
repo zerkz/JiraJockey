@@ -54,6 +54,7 @@ To Do
  * ctrl + up or down - move the currently selected items to the preceding or following box
 
 * Git
+ * color the blocked status purple, with teh blocked epic
  * __high-priority__ add logic to close tickets and assign to user
  * add pop up for open PR's in watched repo's 
  * Add post PR option to new PR submissions
