@@ -15,7 +15,7 @@ poller.addFunc(formatGoal);
 poller.addFunc(updateTicketFormatting);
 poller.addFunc(addUtilities);
 poller.addFunc(widgetLoader);
-warnNoStoryPoint();
+poller.addFunc(warnNoStoryPoint);
 
 // start the poller
 poller.start();
@@ -178,8 +178,9 @@ function warnNoStoryPoint () {
   if (/brander\.atlassian\.net\/browse/.test(window.location.href)) {
     if (!$('[title="Story Points"]').length) {
 
+      if ($('.no-story-point-warn').length) { return; }
 
-      var $warningMessage = $('<ul class="toolbar-group pluggable-ops"><li class="toolbar-item"><a id="edit-issue" class="toolbar-trigger"><span class="warn-left-arrow"></span><span class="trigger-label">Please Add Story Point</span></a></li></ul>');
+      var $warningMessage = $('<ul class="toolbar-group pluggable-ops no-story-point-warn"><li class="toolbar-item"><a id="edit-issue" class="toolbar-trigger"><span class="warn-left-arrow"></span><span class="trigger-label">Please Add Story Point</span></a></li></ul>');
       $warningMessage.find('a')
         .css({
           'border': '1px solid #d04437',
