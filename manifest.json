@@ -17,7 +17,7 @@
   "content_scripts": [
     {
       "run_at"  : "document_end",
-      "matches" : ["https://brander.atlassian.net/*"],
+      "matches" : ["http://jira.brandingbrand.com/*"],
       "css"     : ["content_scripts/jira/jira.css", "lib/widgets/cache_widget/styling.css"],
       "js"      : ["lib/external/lodash.js", "lib/external/jquery.js", 
                      "lib/globals.js", "lib/poller.js", "lib/helpers.js", "lib/cache.js", "lib/jira_helpers.js", "lib/widgets/cache_widget/core.js",

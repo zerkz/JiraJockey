@@ -175,7 +175,7 @@ function setTicketClass (ticket, status) {
 //
 // add warning on ticket page without story points
 function warnNoStoryPoint () {
-  if (/brander\.atlassian\.net\/browse/.test(window.location.href)) {
+  if (/jira\.brandingbrand\.com\/browse/.test(window.location.href)) {
     if (!$('[title="Story Points"]').length) {
 
       if ($('.no-story-point-warn').length) { return; }
