@@ -22,7 +22,7 @@ function linkTicket () {
 
   // Convert the ticket number to a link 
   if (jiraTicket) {
-    var href = 'http://jira.brandingbrand.com/browse/' + jiraTicket
+    var href = 'https://jira.brandingbrand.com/browse/' + jiraTicket
       , link = '<a href="' + href + '" class="bb_formatted">' + jiraTicket + '</a>';
 
     prTitle.empty();
