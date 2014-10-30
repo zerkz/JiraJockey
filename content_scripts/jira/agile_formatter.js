@@ -14,11 +14,11 @@ jiraAPI.getAgileBoardSummary(rapidBoardId, function (tickets) {
 poller.addFunc(formatGoal);
 poller.addFunc(updateTicketFormatting);
 poller.addFunc(addUtilities);
-poller.addFunc(widgetLoader)
+poller.addFunc(widgetLoader);
+poller.addFunc(warnNoStoryPoint);
 
 // start the poller
-poller.start()
-
+poller.start();
 
 //
 //  POLLER FUNCTIONS
@@ -169,6 +169,41 @@ function setTicketClass (ticket, status) {
   // blocked
   } else if (ticket.find('.aui-label:contains(BLOCKED)').length) {
     ticket.addClass('blocked');
+  }
+}
+
+//
+// add warning on ticket page without story points
+function warnNoStoryPoint () {
+  if (/jira\.brandingbrand\.com\/browse/.test(window.location.href)) {
+    if (!$('[title="Story Points"]').length) {
+
+      if ($('.no-story-point-warn').length) { return; }
+
+      var $warningMessage = $('<ul class="toolbar-group pluggable-ops no-story-point-warn"><li class="toolbar-item"><a id="edit-issue" class="toolbar-trigger"><span class="warn-left-arrow"></span><span class="trigger-label">Please Add Story Point</span></a></li></ul>');
+      $warningMessage.find('a')
+        .css({
+          'border': '1px solid #d04437',
+          'background': '#d04437',
+          'point-event': 'none',
+          'position': 'relative',
+          'color': '#fff',
+          'text-shadow': 'none'
+        });
+      $warningMessage.find('.warn-left-arrow')
+        .css({
+          'border-top': '7px solid transparent',
+          'border-bottom': '7px solid transparent',
+          'border-right': '7px solid #d04437',
+          'display': 'inline-block',
+          'position': 'absolute',
+          'left': '-8px',
+          'top': '7px'
+        });
+
+      $('.toolbar-group').first().after($warningMessage);
+
+    }
   }
 }
 
