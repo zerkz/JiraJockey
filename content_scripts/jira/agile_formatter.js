@@ -15,7 +15,7 @@ poller.addFunc(formatGoal);
 poller.addFunc(updateTicketFormatting);
 poller.addFunc(addUtilities);
 poller.addFunc(widgetLoader);
-poller.addFunc(warnNoStoryPoint);
+// poller.addFunc(warnNoStoryPoint);
 
 // start the poller
 poller.start();
