@@ -98,6 +98,5 @@ function validatePR () {
   if(blacklist.test($('#diff').text())) {
     $button.addClass('warn');
     $button.before('<div class="pr-warning">There appears to be debugging code in this file. proceed with caution</div>');
-    console.log()
   }
 }
