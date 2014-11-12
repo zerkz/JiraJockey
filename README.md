@@ -29,6 +29,7 @@ Functionality
   * Changes ticket in title to link to jira ticket 
   * Added a box to the bottom of the first comment in the PR comtaining the commands to pull the pr
   * Converts localhost links in comments to clickable links, displaying only the path
+  * Scans PR submission pages and restyles the button && adds a warning if debuggin code is found
  
 * Poller
   * all style changes listed above will execute every tenth of a second for 30 seconds to accommadate for AJAX requests and restyling in both
