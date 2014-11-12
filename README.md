@@ -9,7 +9,7 @@ Functionality
 =============
 
 * Jira Cache
-  * a half hour long cache of the agile board and use tickets is polled/updated through a background script. it is set to diplay if jira is down, or it is accessible through the options page 
+  * -a half hour long cache of the agile board and use tickets is polled/updated through a background script. it is set to diplay if jira is down, or it is accessible through the options page- broken
 
 * Agile Board
   * Converts in sprint open ticket ticket id bar to a progress bar of sub tasks
