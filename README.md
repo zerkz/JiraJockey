@@ -5,6 +5,11 @@ To add to chrome, go to `menu > settings > extensions` check the `Develper mode`
 
 To enable the cache to store your agileboard, go to the options page in the chrome extensions settings, and enter the agile board ID where prompted
 
+Branches
+========
+
+Stable releases are the numbered branches. The functionality below is the functionality in the last stable release. All dev work is done on master
+
 Functionality
 =============
 
