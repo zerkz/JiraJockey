@@ -90,14 +90,14 @@ if (/\/compare\//.test(window.location)) {
 //
 function validatePR () {
   var $prompt = $('.compare-pr.open');
-  if (!$prompt.length) { return; }
+  var $button = $prompt.find('.button.primary.composer-submit:not(.warn)')
+  if (!($prompt.length && $button.length)) { return; }
 
   // balacklisted functions
   var blacklist = /(console.log|console.warn|writeFile|readFile|appendFile|var_dump|exit)/
   if(blacklist.test($('#diff').text())) {
-    var $button = $prompt.find('.button.primary.composer-submit')
     $button.addClass('warn');
-    $button.prepend('there appears to be debugging code in this file. proceed with caution');
-    console.log
+    $button.before('<div class="pr-warning">There appears to be debugging code in this file. proceed with caution</div>');
+    console.log()
   }
 }
