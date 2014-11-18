@@ -33,7 +33,7 @@
     },
     {
       "run_at"  : "document_end",
-      "matches" : ["*://localhost/*"],
+      "matches" : ["*://localhost/core/checkout", "*://localhost/checkout", "*://localhost/*/checkout", "*://localhost/*/core/checkout"],
       "css"     : ["assets/styling.css", "content_scripts/utilities/form_populator/populator.css"],
       "js"      : ["lib/external/lodash.js", "lib/external/jquery.js",
                      "lib/helpers.js",  
