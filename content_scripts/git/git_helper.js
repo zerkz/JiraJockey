@@ -3,6 +3,7 @@ var poller = new Poller();
 poller.addFunc(linkTicket);
 poller.addFunc(formatLinks);
 poller.addFunc(seedPr);
+poller.addFunc(validatePR)
 
 // start the poller
 poller.start();
@@ -110,4 +111,20 @@ if (/\/compare\//.test(window.location)) {
                '</div>'
   // $('.pull-request-composer .composer-meta').append(prompt);
 
+}
+
+//
+// look at an open PR submission page and scan for console logs and file writes
+//
+function validatePR () {
+  var $prompt = $('.compare-pr.open');
+  var $button = $prompt.find('.button.primary.composer-submit:not(.warn)')
+  if (!($prompt.length && $button.length)) { return; }
+
+  // balacklisted functions
+  var blacklist = /(console.log|console.warn|writeFile|readFile|appendFile|var_dump|exit)/
+  if(blacklist.test($('#diff').text())) {
+    $button.addClass('warn');
+    $button.before('<div class="pr-warning">There appears to be debugging code in this diff. proceed with caution.</div>');
+  }
 }

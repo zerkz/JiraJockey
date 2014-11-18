@@ -28,3 +28,26 @@
   margin: auto;
   margin-top:5px;
 }
+
+.button.primary.warn, .button.primary.warn:hover {
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
+  background-color: #b33630;
+  background-image: -webkit-linear-gradient(#dc5f59, #b33630);
+  background-image: linear-gradient(#dc5f59, #b33630);
+  background-repeat: repeat-x;
+  border-color: #cd504a;
+}
+
+.pr-warning {
+  width: 20%;
+  padding-right: 10px;
+  padding-left: 10px;
+  text-align: center;
+  position: absolute;
+  right: 0;
+  bottom : 60px;
+  color: #900;
+  font-size: 13px;
+  font-weight: bold;
+}

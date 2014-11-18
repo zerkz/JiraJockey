@@ -5,11 +5,16 @@ To add to chrome, go to `menu > settings > extensions` check the `Develper mode`
 
 To enable the cache to store your agileboard, go to the options page in the chrome extensions settings, and enter the agile board ID where prompted
 
+Branches
+========
+
+Stable releases are the numbered branches. The functionality below is the functionality in the last stable release. All dev work is done on master
+
 Functionality
 =============
 
 * Jira Cache
-  * a half hour long cache of the agile board and use tickets is polled/updated through a background script. it is set to diplay if jira is down, or it is accessible through the options page 
+  * ~~a half hour long cache of the agile board and use tickets is polled/updated through a background script. it is set to diplay if jira is down, or it is accessible through the options page~~ broken
 
 * Agile Board
   * Converts in sprint open ticket ticket id bar to a progress bar of sub tasks
@@ -24,6 +29,7 @@ Functionality
   * Changes ticket in title to link to jira ticket 
   * Added a box to the bottom of the first comment in the PR comtaining the commands to pull the pr
   * Converts localhost links in comments to clickable links, displaying only the path
+  * Scans PR submission pages and restyles the button && adds a warning if debuggin code is found
  
 * Poller
   * all style changes listed above will execute every tenth of a second for 30 seconds to accommadate for AJAX requests and restyling in both
