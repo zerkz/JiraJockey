@@ -80,11 +80,11 @@ function seedPr () {
     }
   });
 
-  var seed = 'https://jira.brandingbrand.com/browse/' + lastTicket + '\n\n\n' +
+  var seed = 'https://jira.brandingbrand.com/browse/' + lastTicket + '\n\n\n\n' +
               'Description\n' +
-              '===========\n\n\n' +
+              '===========\n\n\n\n' +
               'Test\n' +
-               '====\n\n\n';
+               '====\n\n\n\n';
 
   $field.val(seed);
   $field.addClass('jj_formatted');
