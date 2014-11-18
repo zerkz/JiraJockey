@@ -69,28 +69,25 @@ function seedPr () {
   if (!($field.length && !$field.val())) { return; }
 
 
-  var lastTicket = [];
+  var lastTicket = '';
   $('.commits-listing .commit-message').each(function () {
-    var titleText = prTitle.text()
-      , match     = titleText.match(/(^[A-Z]+-[0-9]+)/) || []
-      , ticket    = match[1];
+    var commit = $(this).text().trim()
+      , match  = commit.match(/(^[A-Z]+-[0-9]+)/) || []
+      , ticket = match[1];
 
     if (ticket) {
       lastTicket = ticket;
     }
   });
 
-  var seed = 'https://jira.brandingbrand.com/browse/' + lastTicket + '\n\n';
-
-  seed += 'Description\n' +
-          '===========\n\n';
-
-  seed += 'Test\n' +
-          '====\n\n';
+  var seed = 'https://jira.brandingbrand.com/browse/' + lastTicket + '\n\n\n' +
+              'Description\n' +
+              '===========\n\n\n' +
+              'Test\n' +
+               '====\n\n\n';
 
   $field.val(seed);
-
-  field.addClass('jj_formatted');
+  $field.addClass('jj_formatted');
 
 }
 
