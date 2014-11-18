@@ -2,6 +2,7 @@ var poller = new Poller();
 
 poller.addFunc(linkTicket);
 poller.addFunc(formatLinks);
+poller.addFunc(seedPr);
 
 // start the poller
 poller.start();
@@ -12,7 +13,7 @@ poller.start();
 //
 function linkTicket () {
   // if it's already formatted, return
-  if ($('.js-issue-title .bb_formatted').length) { return; }
+  if ($('.js-issue-title .jj_formatted').length) { return; }
 
   var prTitle    = $('.js-issue-title')
     , titleText  = prTitle.text()
@@ -23,7 +24,7 @@ function linkTicket () {
   // Convert the ticket number to a link 
   if (jiraTicket) {
     var href = 'https://jira.brandingbrand.com/browse/' + jiraTicket
-      , link = '<a href="' + href + '" class="bb_formatted">' + jiraTicket + '</a>';
+      , link = '<a href="' + href + '" class="jj_formatted">' + jiraTicket + '</a>';
 
     prTitle.empty();
     prTitle.append(link);
@@ -42,7 +43,7 @@ function formatLinks () {
       , hrefs   = text.match(/(http:\/\/localhost:.*)\s/g);
 
     // if we already formattted the links in this comment, or there aren't any links to format, return
-    if (!(!comment.find('a.bb_formatted').length && hrefs && hrefs.length)) { return; }
+    if (!(!comment.find('a.jj_formatted').length && hrefs && hrefs.length)) { return; }
 
     // replace the links in the text string with link elements
     _.each(hrefs, function (href) {
@@ -51,7 +52,7 @@ function formatLinks () {
         , host     = match[1]
         , path     = match[2]
         , trailing = match[3]
-        , link     = '<a href="' + host + path.replace(/<.*>/, '') + '" class="bb_formatted">' + path + '</a>' + trailing;
+        , link     = '<a href="' + host + path.replace(/<.*>/, '') + '" class="jj_formatted">' + path + '</a>' + trailing;
 
       text = text.replace(href, link);
     });
@@ -61,6 +62,38 @@ function formatLinks () {
     comment.append(text);
   })
 }
+
+function seedPr () {
+  var $field = $('#new_pull_request [name="pull_request[body]"]:not(.jj_formatted)');
+
+  if (!($field.length && !$field.val())) { return; }
+
+
+  var lastTicket = [];
+  $('.commits-listing .commit-message').each(function () {
+    var titleText = prTitle.text()
+      , match     = titleText.match(/(^[A-Z]+-[0-9]+)/) || []
+      , ticket    = match[1];
+
+    if (ticket) {
+      lastTicket = ticket;
+    }
+  });
+
+  var seed = 'https://jira.brandingbrand.com/browse/' + lastTicket + '\n\n';
+
+  seed += 'Description\n' +
+          '===========\n\n';
+
+  seed += 'Test\n' +
+          '====\n\n';
+
+  $field.val(seed);
+
+  field.addClass('jj_formatted');
+
+}
+
 
 // add the branch commands to the description
 var submitter      = $('.timeline-comment-header-text .author').first().text()
