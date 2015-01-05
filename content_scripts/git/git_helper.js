@@ -84,7 +84,9 @@ function seedPr () {
   var seed = '**Ticket:** https://jira.brandingbrand.com/browse/' + lastTicket + '\n\n' +
               '**Reviewers:** \n\n' +
               '## Description\n\n\n\n' +
-              '## Test\n\n\n';
+              '## Test\n\n\n' + 
+              '#platinum #platyplat' +
+              '![image](https://cloud.githubusercontent.com/assets/1448099/5620406/cb5ddd8e-94f9-11e4-83c1-98759f75b6f4.png)';
   $field.val(seed);
   $field.addClass('jj_formatted');
 
