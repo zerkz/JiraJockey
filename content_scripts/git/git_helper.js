@@ -85,7 +85,7 @@ function seedPr () {
               '**Reviewers:** \n\n' +
               '## Description\n\n\n\n' +
               '## Test\n\n\n' + 
-              '#platinum #platyplat' +
+              '#platinum #platyplat\n' +
               '![image](https://cloud.githubusercontent.com/assets/1448099/5620406/cb5ddd8e-94f9-11e4-83c1-98759f75b6f4.png)';
   $field.val(seed);
   $field.addClass('jj_formatted');
