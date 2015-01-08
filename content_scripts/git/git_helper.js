@@ -98,8 +98,13 @@ var submitter      = $('.timeline-comment-header-text .author').first().text()
   , newBranch      = $('.current-branch').last().find('.css-truncate-target').last().text()
   , sourceBranch   = $('.current-branch').first().find('.css-truncate-target').last().text()
   , repo           = ($('meta[name="twitter:title"]').attr('content') || '').replace(/.*\//, '')
-  , gitCommands    = 'git checkout -b ' + submitter + '-' + newBranch + ' ' + sourceBranch + ' &&<br>git pull git@github.com:' + submitter + '/' + repo + ' ' + newBranch + '\n<br>'
-  , commandButton  = '<div id="gitCommands" class="comment">' + gitCommands + '</div>'
+
+
+var gitCommands  = 'git remote add ' + submitter + ' https://github.com/' + submitter + '/' + repo + 
+' &&<br>' + 'git checkout -b ' + submitter + '-' + newBranch + ' ' + sourceBranch + 
+' &&<br>git pull ' + submitter + ' ' + newBranch + '\n<br>';
+
+var commandButton  = '<div id="gitCommands" class="comment">' + gitCommands + '</div>';
 
 $('.timeline-comment').first().after(commandButton);
 
